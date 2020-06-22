@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+set<string>s1;
+string inter(string s,int l,int r){
+   int n=s.length();
+    char a[n];
+    strcpy(a,s.c_str());
+    char temp=a[l];
+    a[l]=a[r];
+    a[r]=temp;
+    s=a;
+    return s;
+}
+void per(string s,int l,int r){
+    if(l==r){
+        s1.insert(s);
+        return;
+    }
+    else{
+        for(int i=l;i<=r;i++){
+            s=inter(s,l,i);
+            per(s,l+1,r);
+            s=inter(s,l,i);
+        }
+    }
+}
+int main() {
+per("abcd",0,3);
+for(auto it=s1.begin();it!=s1.end();it++){
+    cout<<*it<<endl;
+}
+	return 0;
+}
