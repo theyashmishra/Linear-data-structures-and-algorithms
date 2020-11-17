@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+int maxi(int a[],int n){
+    int i,j=n-1,x;
+    for(i=n-2;i>=0;i--,j--){
+        if(a[i]<a[j]){
+            j=a[i];
+            x=i;
+            break;
+        }
+    }
+    return x;
+}
+int mini(int a[],int x,int n){
+    int i,j=1000,k;
+    for(i=x;i<n;i++){
+        if(a[x]<a[i]&&(a[i]-a[x])<j){
+            j=a[i]-a[x];
+            k=i;
+        }
+    }
+    return k;
+}
+int main() {
+int t,n,i,j,k,x,y,z;
+cin>>t;
+while(t--){
+    cin>>n;
+    int a[n];
+    for(i=0;i<n;i++){
+        cin>>a[i];
+    }
+    x=maxi(a,n);
+    j=mini(a,x,n);
+   
+    z=a[x];
+    a[x]=a[j];
+    a[j]=z;
+    x+=1;
+    sort(a+x,a+n);
+     for(i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+}
+	return 0;
+}
