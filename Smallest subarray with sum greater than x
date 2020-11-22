@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	long long int t,n,i,j,k,x,y,z,m;
+	cin>>t;
+	while(t--){m=100000000;
+	    cin>>n>>x;
+	    long long int a[n];
+	    for(i=0;i<n;i++){
+	        cin>>a[i];
+	    }
+	    j=k=z=y=0;
+	    for(i=0;i<n;i++){
+	        k+=a[i];
+	        if(k>x){
+	            j=i;
+	           while(k>=x){
+	              k-=a[y];  
+	           if(k<=x){
+	             z=j-y+1;
+	             y++;
+	            break;
+	        }
+	        y++;
+	    }
+	        }
+	         if(z<m&&z!=0){
+	             m=z;
+	         }  
+	        }
+	    
+	   
+	   
+	    cout<<m<<endl;
+	}
+	return 0;
+}
