@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+ long long int t,n,i,j,k,x,f,s;
+    cin>>t;
+    while(t--){
+        f=0;
+        cin>>n>>x;
+        long long int a[n];
+        for(i=0;i<n;i++){
+            cin>>a[i];
+        }
+        sort(a,a+n);
+        k=0;
+        while(k<n-2){
+            x-=a[k];
+            i=k+1;
+            j=n-1;
+            while(i<j){
+                if(x-a[i]-a[j]==0){
+                    f=1;
+                    break;
+                }
+                else if(x-a[i]-a[j]<0){
+                   j--;
+                }
+                 else if(x-a[i]-a[j]>0){
+                 
+                     i++;
+                 }
+                    
+            }
+            x+=a[k];
+            k++;
+            if(f==1){
+                break;
+            }
+        }
+        if(f==0||f==2){
+            cout<<"0\n";
+        }
+        else{
+            cout<<"1\n";
+        }
+    }
+	return 0;
+}
