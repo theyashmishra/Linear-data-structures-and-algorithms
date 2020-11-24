@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+int n,i,j,k,x,y;
+cin>>n;
+
+int a[]={-5, -2, 5, 2, 4, 7, 1, 8, 0, -8};
+for(i=0;i<n;i++){
+    if((i%2==0&&a[i]>=0)||(i%2!=0&&a[i]<0)){
+        if(i%2==0){
+            j=i+1;
+            while(j<n){
+                if(a[j]<0){
+                break;}
+                j++;
+            }
+            if(j==n){
+                i=n;
+                break;
+            }
+            swap(a[i],a[j]);
+        }
+        else{
+             j=i+1;
+            while(j<n){
+                if(a[j]>=0)
+                break;
+                j++;
+            }
+            if(j==n){
+                i=n;
+                break;
+            }
+            swap(a[i],a[j]);
+        }
+    }}
+    for(i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+
+	return 0;
+}
